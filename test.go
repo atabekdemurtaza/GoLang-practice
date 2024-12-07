@@ -1,10 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"math"
-)
-
 //	func add(x float64, y float64) float64 {
 //		return math.Sqrt(float64(x*x + y*y))
 //	}
@@ -86,11 +81,47 @@ import (
 //	fmt.Println(sum)
 //}
 
-func sqrt(x float64) string {
-	if x < 0 {
-		return sqrt(-x) + "i"
+//func sqrt(x float64) string {
+//	if x < 0 {
+//		return sqrt(-x) + "i"
+//	}
+//	return fmt.Sprint(math.Sqrt(x))
+//}
+//
+//func main() {
+//	fmt.Println(sqrt(2))
+//}
+
+//import (
+//	"fmt"
+//	"math"
+//)
+//
+//func pow(x, n, lim float64) float64 {
+//	if v := math.Pow(x, n); v < lim {
+//		return v
+//	} else {
+//		fmt.Printf("%g >= %g\n", v, lim)
+//	}
+//	// cant use v here though
+//	return lim
+//}
+//func main() {
+//	fmt.Println(pow(3, 2, 10))
+//	fmt.Println(pow(3, 3, 10))
+//}
+
+import (
+	'fmt'
+	'math'
+)
+
+func sqrt(x float64) float64 {
+	z := 1.0
+	for i := 0; i < 10; i++ {
+		z -= (z*z - x) / (2 * z)
 	}
-	return fmt.Sprint(math.Sqrt(x))
+	return z
 }
 
 func main() {
